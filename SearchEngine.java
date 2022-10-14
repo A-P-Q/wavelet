@@ -10,7 +10,7 @@ class Handler implements URLHandler {
     public String handleRequest(URI url) {
         //Display Strings in the list. 
         if (url.getPath().equals("/")) {
-            return String.format("String(s) already in the list: %s", ListofString.toString());
+            return String.format("String(s) in the list: %s", ListofString.toString());
         } 
         else {
             System.out.println("Path: " + url.getPath());
@@ -18,7 +18,7 @@ class Handler implements URLHandler {
                 String[] query = url.getQuery().split("=");
                 if (query[0].equals("s")) {   
                     ListofString.add(query[1]);
-                    return  String.format("String that was added is: %s. String(s) now in the list: %s", query[1], ListofString.toString());
+                    return  String.format("String added: %s. String(s) now in the list: %s", query[1], ListofString.toString());
                 }
             }
             else if (url.getPath().contains("/search")){
